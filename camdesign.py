@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def Cicloidal(L,theta,beta,orientacion,derivada = 0):
     if derivada == 0:
@@ -36,3 +37,31 @@ def ArmonicoSimple(L,theta,beta,orientacion,derivada=0):
         elif orientacion == "descenso":
             resultado = - ((np.pi**2)*L/2*np.radians(beta)**2)*np.cos((np.pi*np.radians(theta))/np.radians(beta))
     return resultado
+
+def CoordADAMS(radio,theta,ruta = './CoordADAMS.csv'):
+    x = []
+    y = []
+    z = np.zeros((361))
+    for t,r in zip(theta,radio):
+        aux = r*np.cos(np.radians(t))
+        x.append(aux)
+        aux = r*np.sin(np.radians(t))
+        y.append(aux)
+
+    df_coord = pd.DataFrame({'X':x,
+                             'Y':y,
+                             'Z':z})
+    df_coord.to_csv(ruta, index=False, header=False)
+
+def CoordINVENTOR(radio,theta,ruta = './CoordINVENTOR.csv'):
+    x = []
+    y = []
+    for t,r in zip(theta,radio):
+        aux = r*np.cos(np.radians(t))
+        x.append(aux)
+        aux = r*np.sin(np.radians(t))
+        y.append(aux)
+
+    df_coord = pd.DataFrame({'X':x,
+                             'Y':y})
+    df_coord.to_csv(ruta, index=False, header=False)
