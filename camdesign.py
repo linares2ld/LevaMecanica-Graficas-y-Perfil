@@ -41,12 +41,15 @@ def ArmonicoSimple(L,theta,beta,orientacion,derivada=0):
 def CoordADAMS(radio,theta,ruta = './CoordADAMS.csv'):
     x = []
     y = []
-    z = np.zeros((361))
+    z = np.zeros((362))
     for t,r in zip(theta,radio):
         aux = r*np.cos(np.radians(t))
         x.append(aux)
         aux = r*np.sin(np.radians(t))
         y.append(aux)
+
+    x.append(radio[0]*np.cos(np.radians(theta[0])))
+    y.append(radio[0]*np.sin(np.radians(theta[0])))
 
     df_coord = pd.DataFrame({'X':x,
                              'Y':y,
