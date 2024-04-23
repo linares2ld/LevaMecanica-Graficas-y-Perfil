@@ -9,15 +9,15 @@ def Cicloidal(L,theta,beta,orientacion,derivada = 0):
         elif orientacion == "descenso":
             resultado = L*(1 - (theta/beta) + (1/(2*np.pi)) * np.sin((2*np.pi*np.radians(theta))/np.radians(beta))) 
     elif derivada == 1:
-            if orientacion == "ascenso":
-                resultado = (L/np.radians(beta))*(1 - np.cos((2*np.pi*np.radians(theta))/np.radians(beta)))
-            elif orientacion == "descenso":
-                resultado = - (L/np.radians(beta))*(1 - np.cos((2*np.pi*np.radians(theta))/np.radians(beta)))
+        if orientacion == "ascenso":
+            resultado = (L/np.radians(beta))*(1 - np.cos((2*np.pi*np.radians(theta))/np.radians(beta)))
+        elif orientacion == "descenso":
+            resultado = - (L/np.radians(beta))*(1 - np.cos((2*np.pi*np.radians(theta))/np.radians(beta)))
     elif derivada == 2:
-            if orientacion == "ascenso":
-                resultado = (2*np.pi*L/np.radians(beta)**2)*np.sin((2*np.pi*np.radians(theta))/np.radians(beta))
-            elif orientacion == "descenso":
-                resultado = - (2*np.pi*L/np.radians(beta)**2)*np.sin((2*np.pi*np.radians(theta))/np.radians(beta))         
+        if orientacion == "ascenso":
+            resultado = (2*np.pi*L/np.radians(beta)**2)*np.sin((2*np.pi*np.radians(theta))/np.radians(beta))
+        elif orientacion == "descenso":
+            resultado = - (2*np.pi*L/np.radians(beta)**2)*np.sin((2*np.pi*np.radians(theta))/np.radians(beta))         
     return resultado
 
 def CicloidalT(L,theta,beta,orientacion,derivada = 0):
@@ -27,15 +27,20 @@ def CicloidalT(L,theta,beta,orientacion,derivada = 0):
         elif orientacion == "descenso":
             resultado = L*(1 - (theta/beta) + (1/(2*np.pi)) * np.sin((2*np.pi*theta)/beta)) 
     elif derivada == 1:
-            if orientacion == "ascenso":
-                resultado = (L/beta)*(1 - np.cos((2*np.pi*theta/beta)))
-            elif orientacion == "descenso":
-                resultado = - (L/beta)*(1 - np.cos((2*np.pi*theta/beta)))
+        if orientacion == "ascenso":
+            resultado = (L/beta)*(1 - np.cos((2*np.pi*theta/beta)))
+        elif orientacion == "descenso":
+            resultado = - (L/beta)*(1 - np.cos((2*np.pi*theta/beta)))
     elif derivada == 2:
-            if orientacion == "ascenso":
-                resultado = (2*np.pi*L/beta**2)*np.sin((2*np.pi*theta)/beta)
-            elif orientacion == "descenso":
-                resultado = - (2*np.pi*L/beta**2)*np.sin((2*np.pi*theta)/beta)         
+        if orientacion == "ascenso":
+            resultado = (2*np.pi*L/beta**2)*np.sin((2*np.pi*theta)/beta)
+        elif orientacion == "descenso":
+            resultado = - (2*np.pi*L/beta**2)*np.sin((2*np.pi*theta)/beta)
+    elif derivada == 3:
+        if orientacion == "ascenso":
+            resultado = (4*(np.pi**2)*L/beta**3)*np.cos((2*np.pi*theta)/beta)
+        elif orientacion == "descenso":
+            resultado = - (4*(np.pi**2)*L/beta**3)*np.cos((2*np.pi*theta)/beta)
     return resultado
 
 def ArmonicoSimple(L,theta,beta,orientacion,derivada=0):
