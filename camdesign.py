@@ -93,8 +93,8 @@ def CoordINVENTOR(radio,theta,ruta = './CoordINVENTOR.csv'):
     df_coord.to_csv(ruta, index=False, header=False)
 
 def FuerzaLeva(valor):
-    A_leva = np.pi*0.4**2
-    A_pisada = np.pi*(2*np.sqrt(2)/5)**2
+    A_leva = np.pi*0.6**2
+    A_pisada = np.pi*(3*np.sqrt(2)/5)**2
     return (valor/A_pisada)*A_leva
 
 def ElevacionSeguidor(valor):
